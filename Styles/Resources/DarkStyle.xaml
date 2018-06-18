@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Styles.Resources">
+    <Style x:Key="jumbotron">
+        <Setter Property="Control.FontFamily" Value="Times New Roman"></Setter>
+        <Setter Property="Control.FontSize" Value="18"></Setter>
+        <Setter Property="Control.FontWeight" Value="Bold"></Setter>
+        <Setter Property="Control.Background" Value="Black"></Setter>
+        <Setter Property="Control.Foreground" Value="White"></Setter>
+    </Style>
+
+    <Style x:Key="HappyTiledElementStyle">
+        <Setter Property="Control.Background">
+            <Setter.Value>
+                <ImageBrush TileMode="Tile"
+                                ViewportUnits="Absolute"
+                                Viewport="0 0 32 32"
+                                ImageSource="/IMG/Без названия.jpg"
+                                Opacity="0.3"></ImageBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ChileBigFontButton" 
+               TargetType="Button"
+               BasedOn="{StaticResource HappyTiledElementStyle}">
+        <Setter Property="Control.FontSize" Value="18"></Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="Control.FontSize"
+                    Value="20">
+        </Setter>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="Margin" Value="5"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Fill="Green"></Ellipse>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="Center">
+
+                        </ContentPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

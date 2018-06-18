@@ -1,0 +1,85 @@
+﻿<Window x:Class="Styles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Styles"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="525">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/ResourceDictionary.xaml" />
+                <ResourceDictionary Source="Resources/Template.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+      
+    </Window.Resources>
+    
+    <Grid>
+        <!--<Grid.Background>
+            <ImageBrush ImageSource="/IMG/Без названия.jpg" Stretch="Fill"/>
+        </Grid.Background>-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0">
+            <RadioButton Content="Dark" x:Name="Dark" Click="Change_Template"/>
+            <RadioButton Content="Light" x:Name="Light" Click="Change_Template" />
+        </WrapPanel>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="Style" >
+
+                <StackPanel Margin="20">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="/IMG/Без названия.jpg" Stretch="Fill"/>
+                    </StackPanel.Background>
+                    <Button Height="30" Style="{DynamicResource jumbotron}">A customize Button</Button>
+                    <Label Content="Normal Content"></Label>
+
+                    <Button Height="30" Style="{StaticResource HappyTiledElementStyle}">Normal button</Button>
+
+                    <Button Height="30" x:Name="AcbNutton">Another Customize button</Button>
+                    <Label Content="Вложенный Style"></Label>
+                    <Button Height="30">
+                        <Button.Style>
+                            <Style>
+                                <Setter Property="Control.FontSize"
+                                Value="20"></Setter>
+                            </Style>
+                        </Button.Style>
+                        <Button.Content>
+                            Вложенный стиль
+                        </Button.Content>
+                    </Button>
+
+                    <Label Content="Один Style для всех элементов"></Label>
+                    <Button Style="{StaticResource jumbotron}" Content="Test" Height="30"></Button>
+                    <TextBox Style="{StaticResource jumbotron}"></TextBox>
+
+                    <Button Style="{StaticResource ChileBigFontButton}" Content="ChileBigFontButton" Height="30"></Button>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Template">
+                <StackPanel Margin="20">
+                    <Button Height="40" Width="150"
+                                Template="{StaticResource ButtonTemplate}" 
+                                Content="Baton"></Button>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Rb">
+                <StackPanel>
+                    <Button Content="Test1"></Button>
+                    <RadioButton>001</RadioButton>
+                    <RadioButton>002</RadioButton>
+                    <RadioButton>003</RadioButton>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        
+        
+    </Grid>
+</Window>
